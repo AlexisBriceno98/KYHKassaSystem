@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace KYHKassaSystem
 {
@@ -89,7 +90,6 @@ namespace KYHKassaSystem
                         var line = $"{product.productName}: {Convert.ToInt32(answer[1])} * {product.price} = {sum}";
                         File.AppendAllText(fileName, line + "\n");
 
-                        
 
                         Console.Clear();
                         var list = line;
@@ -110,7 +110,7 @@ namespace KYHKassaSystem
                             Console.Clear();
                             Console.WriteLine("Godkänd Bestalning.\n");
                             int NR = kvitto.recentReceipt();
-                            Console.WriteLine("Kvitto Nr" + NR);
+                            Console.WriteLine("Kvitto Nr " + NR);
                             File.AppendAllText(fileName, $"  Totalt: \n{totalSum} ");
                             File.AppendAllText(fileName, $"\n--------{reciptDate}--------");
 
@@ -120,9 +120,16 @@ namespace KYHKassaSystem
                             Console.WriteLine($"\n------{reciptDate}--------");
                             File.AppendAllText(fileName, Environment.NewLine);
 
-                            for (int i = 1; i <= product.quantity; i++)
+                            foreach(var item in buying)
                             {
-                                File.AppendAllText(product.productName + ".txt", $"\n{DateTime.Now.ToString("yyyy-MM-dd")}");
+                                var namn = item.Split(":");
+
+                                var antal = namn[1].Split("*");
+                                for (int i = 0; i < Convert.ToInt32(antal[0]); i++)
+                                {
+                                    File.AppendAllText(namn[0] + ".txt",
+                                        $"\n{DateTime.Now.ToString("yyyy-MM-dd")}");
+                                }
                             }
                             break;
                         }

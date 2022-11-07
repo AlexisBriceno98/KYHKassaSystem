@@ -1,4 +1,4 @@
-﻿111;Burk Läsk;St Pris;12
-112;Kaffe ;St Pris;49,50
-113;Banan;Kg Pris;14,50
-114;Äpple ;St Pris;5
+﻿111;Burk Läsk;St Pris;12; 5000
+112;Kaffe ;St Pris;49,50; 5000
+113;Banan;Kg Pris;14,50; 5000
+114;Äpple ;St Pris;5; 5000

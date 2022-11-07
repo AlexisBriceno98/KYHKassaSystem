@@ -45,7 +45,7 @@ namespace KYHKassaSystem
                 prod.productName = parts[1];
                 prod.priceType = parts[2];
                 prod.price = Convert.ToDecimal(parts[3]);
-                prod.quantity = 0;
+                prod.quantity = Convert.ToInt32(parts[4]);
                 result.Add(prod);
             }
 
